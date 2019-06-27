@@ -19,7 +19,6 @@ const Form = ({onSubmit, categories}) => {
       onSubmit(i);
       itemRef.current.value = '';
     }
-    console.log(categoryRef.current.value)
   }
 
   return (

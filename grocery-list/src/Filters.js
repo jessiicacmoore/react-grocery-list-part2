@@ -19,6 +19,7 @@ const Filters = ({ filters, onSubmit, applyFilter}) => {
       value: v
     };
     onSubmit(f)
+    filterRef.current.value = '';
   }
 
   return (
