@@ -69,7 +69,7 @@ const App = () => {
       <header className="header">
         <h1>Grocery List</h1>
       </header>
-      <Form onSubmit={addItem}/>
+      <Form onSubmit={addItem} categories={filters}/>
       <Filters filters={filters} onSubmit={addFilter} applyFilter={applyFilter} />
       <List
         items={items}

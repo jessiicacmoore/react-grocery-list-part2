@@ -11,7 +11,7 @@ const List = ({ items, incrementItem, decrementItem, selectedFilter }) => {
     } else {
       return (item.type === selectedFilter)
     }
-  }).map((item, i) => (
+    }).map((item, i) => (
       <ListItem
         key={i}
         item={item}
@@ -19,8 +19,6 @@ const List = ({ items, incrementItem, decrementItem, selectedFilter }) => {
         onDecrementClick={() => decrementItem(i)}
       />)
   );
-
-
 
   return (
     <ul id="shoppingList" className="shoppinglist">
