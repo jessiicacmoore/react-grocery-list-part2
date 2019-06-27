@@ -12,6 +12,13 @@ const App = () => {
     { name: 'Bakery', value: 'bakery' },
   ];
   const [filters, setFilters] = useState(initialFilters);
+  const [activeFilter, setFilter] = useState('all');
+
+  const applyFilter = (f) => {
+    setFilter((oldFilter) => 
+      f
+    )
+  }
 
   const addFilter = (f) => {
     setFilters((oldFilters) => 
@@ -63,11 +70,12 @@ const App = () => {
         <h1>Grocery List</h1>
       </header>
       <Form onSubmit={addItem}/>
-      <Filters filters={filters} onSubmit={addFilter}/>
+      <Filters filters={filters} onSubmit={addFilter} applyFilter={applyFilter} />
       <List
         items={items}
         incrementItem={incrementItemQuantity}
         decrementItem={decrementItemQuantity}
+        selectedFilter={activeFilter}
       />
     </main>
   );
