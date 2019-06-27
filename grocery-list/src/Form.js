@@ -10,7 +10,10 @@ const Form = ({onSubmit}) => {
       type: 'dairy',
       quantity: 1
     }
-    onSubmit(i);
+    if (i.name) {
+      onSubmit(i);
+      itemRef.current.value = '';
+    }
   }
 
   return (
