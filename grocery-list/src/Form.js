@@ -3,10 +3,10 @@ import FormOption from './FormOption';
 
 const Form = ({onSubmit, categories}) => {
 
+  const optionElements = categories.map((category, i) => <FormOption key={i} category={category} /> )
+  
   const itemRef = useRef();
   const categoryRef = useRef();
-
-  const optionElements = categories.map((category, i) => <FormOption key={i} category={category} /> )
 
   const handleSubmit = (e) => {
     e.preventDefault();

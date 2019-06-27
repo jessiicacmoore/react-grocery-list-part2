@@ -11,9 +11,10 @@ const App = () => {
     { name: 'Dairy', value: 'dairy' },
     { name: 'Bakery', value: 'bakery' },
   ];
+
   const [filters, setFilters] = useState(initialFilters);
   const [activeFilter, setFilter] = useState('all');
-
+  
   const applyFilter = (f) => {
     setFilter((oldFilter) => 
       f
@@ -25,6 +26,7 @@ const App = () => {
       [...oldFilters, f]
     )
   }
+
 
   const initialItems = [
     { name: 'Steak', type: 'meat', quantity: 3 },
@@ -45,10 +47,8 @@ const App = () => {
       if (i === index) {
         item.quantity++;
       }
-
       return item;
     });
-
     setItems(updatedItems);
   };
 
@@ -57,10 +57,8 @@ const App = () => {
       if (i === index && item.quantity > 0) {
         item.quantity--;
       }
-
       return item;
     });
-
     setItems(updatedItems);
   };
 

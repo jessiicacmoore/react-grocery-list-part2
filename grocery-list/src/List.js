@@ -2,8 +2,6 @@ import React from 'react';
 import ListItem from './ListItem';
 
 const List = ({ items, incrementItem, decrementItem, selectedFilter }) => {
-  // (selectedFilter === 'all') ? true : (item.type === selectedFilter)
-
 
   const itemElements = items.filter( item => {
     if (selectedFilter === 'all') {
