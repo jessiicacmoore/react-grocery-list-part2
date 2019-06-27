@@ -4,13 +4,20 @@ import Filters from './Filters';
 import List from './List';
 
 const App = () => {
-  const filters = [
+  const initialFilters = [
     { name: 'All', value: 'all' },
     { name: 'Meat', value: 'meat' },
     { name: 'Produce', value: 'prod' },
     { name: 'Dairy', value: 'dairy' },
     { name: 'Bakery', value: 'bakery' },
   ];
+  const [filters, setFilters] = useState(initialFilters);
+
+  const addFilter = (f) => {
+    setFilters((oldFilters) => 
+      [...oldFilters, f]
+    )
+  }
 
   const initialItems = [
     { name: 'Steak', type: 'meat', quantity: 3 },
@@ -24,7 +31,7 @@ const App = () => {
     setItems((oldItems) =>
       [...oldItems, i]
     )
-  }
+  };
 
   const incrementItemQuantity = (index) => {
     const updatedItems = items.map((item, i) => {
@@ -56,7 +63,7 @@ const App = () => {
         <h1>Grocery List</h1>
       </header>
       <Form onSubmit={addItem}/>
-      <Filters filters={filters}/>
+      <Filters filters={filters} onSubmit={addFilter}/>
       <List
         items={items}
         incrementItem={incrementItemQuantity}

@@ -2,6 +2,8 @@ import React from 'react';
 import ListItem from './ListItem';
 
 const List = ({ items, incrementItem, decrementItem }) => {
+
+
   const itemElements = items.map((item, i) => (
     <ListItem
       key={i}

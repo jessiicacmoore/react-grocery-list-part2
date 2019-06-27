@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import FilterItem from './FilterItem';
 
-const Filters = ({ filters }) => {
+const Filters = ({ filters, onSubmit }) => {
+  const filterRef = useRef()
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const v = filterRef.current.value;
+    const f = {
+      name: v,
+      value: v
+    };
+    onSubmit(f)
+  }
+
   const filterElements = filters.map((filter, i) => <FilterItem key={i} id={i} filter={ filter } />);
 
   return (
@@ -9,8 +20,8 @@ const Filters = ({ filters }) => {
       <ul className="filters">
         { filterElements }
       </ul>
-      <form id="newCat" className="cat-new">
-        <input type="text" name="item" id="itemName" className="form-component inpt" placeholder="New Category"/>
+      <form id="newCat" className="cat-new" onSubmit={handleSubmit}>
+        <input ref={filterRef} type="text" name="item" id="itemName" className="form-component inpt" placeholder="New Category"/>
       </form>
     </section>
   );

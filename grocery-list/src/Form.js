@@ -7,7 +7,7 @@ const Form = ({onSubmit}) => {
     e.preventDefault();
     const i = {
       name: itemRef.current.value,
-      type: 'dairy',
+      type: 'all',
       quantity: 1
     }
     if (i.name) {
