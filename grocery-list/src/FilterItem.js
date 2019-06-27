@@ -5,8 +5,8 @@ const FilterItem = ({ filter, id }) => {
 
   return (
     <li>
-      <input type="radio" name="category" value={ value } id={ id } defaultChecked />
-      <label htmlFor="filter0">{ name }</label>
+      <input type="radio" name="category" value={ value } id={ "filter" + id } defaultChecked />
+      <label htmlFor={ "filter" + id }>{ name }</label>
     </li>
   );
 };
