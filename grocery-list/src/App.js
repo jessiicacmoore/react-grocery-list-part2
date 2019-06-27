@@ -20,6 +20,12 @@ const App = () => {
   ];
   const [items, setItems] = useState(initialItems);
 
+  const addItem = (i) => {
+    setItems((oldItems) =>
+      [...oldItems, i]
+    )
+  }
+
   const incrementItemQuantity = (index) => {
     const updatedItems = items.map((item, i) => {
       if (i === index) {
@@ -49,7 +55,7 @@ const App = () => {
       <header className="header">
         <h1>Grocery List</h1>
       </header>
-      <Form />
+      <Form onSubmit={addItem}/>
       <Filters filters={filters}/>
       <List
         items={items}

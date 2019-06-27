@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
-const Form = () => {
+const Form = ({onSubmit}) => {
+
+  const itemRef = useRef();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const i = {
+      name: itemRef.current.value,
+      type: 'dairy',
+      quantity: 1
+    }
+    onSubmit(i);
+  }
+
   return (
-   <form id="newItem" className="newitem" auto-complete="off">
+   <form id="newItem" className="newitem" auto-complete="off" onSubmit={handleSubmit}>
      <label htmlFor="itemName" className="line-label">New Item</label>
      <div className="addnew">
-       <input type="text" name="item" id="itemName" className="form-component inpt" placeholder="What do you need?" />
+       <input ref={itemRef} type="text" name="item" id="itemName" className="form-component inpt" placeholder="What do you need?" />
        <input type="submit" value="Add" className="form-component btn" />
      </div>
    </form>
